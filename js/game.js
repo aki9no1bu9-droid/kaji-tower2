@@ -248,7 +248,7 @@ const Game = {
       if (b.dropped && b.bounds.min.y < topMost) topMost = b.bounds.min.y;
     }
     // コマ1個分くらい上に出す（小さすぎると土台に刺さるので 1.3 倍の余白）
-    const pieceSize = Math.max(45, this.W * 0.14); // spawnNext の targetW と合わせる
+    const pieceSize = Math.max(45, this.W * 0.14); // スポーン間隔の目安（targetW より小さめで余白を作る）
     return topMost - pieceSize * 1.3;
   },
 
@@ -265,7 +265,7 @@ const Game = {
     if (!item) return;
 
     // 表示サイズ：土台幅と同じくらい（本家の比率に寄せる）
-const targetW = Math.max(78, W * 0.24);
+    const targetW = Math.max(78, W * 0.24);
     const scale = targetW / item.w;
 
     const scaledVerts = item.verts.map(v => ({ x: v.x * scale, y: v.y * scale }));
