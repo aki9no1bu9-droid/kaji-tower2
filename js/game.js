@@ -265,7 +265,7 @@ const Game = {
     if (!item) return;
 
     // 表示サイズ：土台幅と同じくらい（本家の比率に寄せる）
-    const targetW = Math.max(45, W * 0.50);
+const targetW = Math.max(78, W * 0.24);
     const scale = targetW / item.w;
 
     const scaledVerts = item.verts.map(v => ({ x: v.x * scale, y: v.y * scale }));
