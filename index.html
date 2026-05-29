@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>カジワラタワーバトル２</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/poly-decomp/0.3.0/decomp.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== タイトル ===== -->
+  <section id="titleScreen" class="screen">
+
+    <!-- ヘッダー行 -->
+    <div class="th-header">
+      <div class="th-profile">
+        <div class="th-avatar">🎮</div>
+        <div class="th-name">フレンズ</div>
+      </div>
+      <div class="th-currency">
+        <div class="th-curr-row"><span>🪙</span><span>100</span></div>
+        <div class="th-curr-row"><span>💎</span><span>0</span></div>
+      </div>
+    </div>
+
+    <!-- シーズン情報 -->
+    <p class="th-season">シーズン1　スコア:0　記録:ー</p>
+
+    <!-- タイトル＋プレイボタン -->
+    <div class="th-hero">
+      <div class="th-sun"></div>
+      <div class="th-cloud"></div>
+      <div class="logo">カジワラタワー<div class="n"></div>バトル２</div>
+      <button class="th-play-btn" id="startBtn" disabled>▶</button>
+    </div>
+
+    <!-- キャラクター＋草ステージ -->
+    <div class="th-stage">
+      <div id="preview" class="th-chars">
+        <div class="empty-hint">読み込み中…</div>
+      </div>
+      <div class="th-grass"></div>
+    </div>
+
+    <!-- 右サイドボタン（未実装） -->
+    <div class="th-side">
+      <button class="th-icon-btn" id="giftBtn">🎁</button>
+      <button class="th-icon-btn" id="questBtn">📋</button>
+      <button class="th-icon-btn" id="shopBtn">🏪</button>
+    </div>
+
+    <!-- ボトムバー -->
+    <div class="th-bottom">
+      <button class="th-mail-btn" id="mailBtn">✉️</button>
+      <button class="th-sub-btn" id="recordBtn">⏳<br>記録</button>
+      <button class="th-sub-btn" id="settingsBtn">⚙️<br>設定</button>
+      <button class="th-rank-btn" id="rankBtn">
+        <div class="th-medals">
+          <span class="medal-g">1</span><span class="medal-s">2</span><span class="medal-b">3</span>
+        </div>
+      </button>
+      <button class="th-friend-btn" id="friendBattleBtn" disabled>フレンド<br>対戦</button>
+    </div>
+
+  </section>
+
+  <!-- ===== ゲーム ===== -->
+  <section id="gameScreen" class="screen hidden">
+    <div id="hud">
+      <div id="turnBadge" class="turn-badge turn-p1">P1のばん</div>
+      <div id="countLabel" class="count">置いた数: 0</div>
+    </div>
+    <div id="canvasWrap"></div>
+    <button id="rotateBtn" class="rotate-btn">⟳ 回転</button>
+    <div id="hint">指で動かす → はなすと落下 ／ 回転ボタンで向き変更</div>
+  </section>
+
+  <!-- ===== 結果 ===== -->
+  <section id="result" class="screen hidden">
+    <div class="result-title" id="resultTitle">P2のかち！</div>
+    <p class="result-sub" id="resultSub">P1が落としちゃった…</p>
+    <div class="btn-row">
+      <button class="btn big" id="againBtn">もう一回</button>
+      <button class="btn ghost" id="homeBtn">タイトルへ</button>
+    </div>
+  </section>
+
+  <!-- 未実装トースト -->
+  <div id="unimplToast" class="unimpl-toast">未実装</div>
+
+</div>
+
+<script src="js/photos.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
